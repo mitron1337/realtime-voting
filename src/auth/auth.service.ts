@@ -40,12 +40,12 @@ export class AuthService {
   async login(email: string, password: string) {
     const user = await this.userRepo.findOne({ where: { email } });
     if (!user) {
-      throw new Error('Email yoki parol noto\'g\'ri');
+      throw new Error('Email yoki parol notogri');
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
-      throw new Error('Email yoki parol noto\'g\'ri');
+      throw new Error('Email yoki parol notogri');
     }
 
     const token = this.jwtService.sign({ 

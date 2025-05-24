@@ -29,7 +29,7 @@ export class AuthController {
   }
 
   @Post('register')
-  @ApiOperation({ summary: 'Ro\'yxatdan o\'tish' })
+  @ApiOperation({ summary: 'Royxatdan otish' })
   async register(@Body() registerDto: RegisterDto) {
     try {
       return await this.authService.register(registerDto.name, registerDto.email, registerDto.password);

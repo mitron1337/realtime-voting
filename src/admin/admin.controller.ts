@@ -23,7 +23,7 @@ export class AdminController {
   @ApiOperation({ summary: 'Yangi poll yaratish' })
   async createPoll(@Body() createPollDto: CreatePollDto, @Request() req) {
     if (req.user.role !== 'admin') {
-      return { error: 'Ruxsat yo\'q' };
+      return { error: 'Ruxsat yoq' };
     }
 
     try {
@@ -41,7 +41,7 @@ export class AdminController {
   @ApiOperation({ summary: 'Poll natijalarini olish' })
   async getPollResults(@Param('id') id: string, @Request() req) {
     if (req.user.role !== 'admin') {
-      return { error: 'Ruxsat yo\'q' };
+      return { error: 'Ruxsat yoq' };
     }
 
     try {
@@ -55,7 +55,7 @@ export class AdminController {
   @ApiOperation({ summary: 'Pollni yangilash' })
   async updatePoll(@Param('id') id: string, @Body() updatePollDto: UpdatePollDto, @Request() req) {
     if (req.user.role !== 'admin') {
-      return { error: 'Ruxsat yo\'q' };
+      return { error: 'Ruxsat yoq' };
     }
 
     try {
@@ -66,10 +66,10 @@ export class AdminController {
   }
 
   @Delete('polls/:id')
-  @ApiOperation({ summary: 'Pollni o\'chirish' })
+  @ApiOperation({ summary: 'Pollni ochirish' })
   async deletePoll(@Param('id') id: string, @Request() req) {
     if (req.user.role !== 'admin') {
-      return { error: 'Ruxsat yo\'q' };
+      return { error: 'Ruxsat yoq' };
     }
 
     try {

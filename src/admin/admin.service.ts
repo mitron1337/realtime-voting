@@ -70,7 +70,6 @@ export class AdminService {
   async updatePoll(pollId: string, isActive: boolean) {
     await this.pollRepo.update(pollId, { isActive });
     
-    // Poll holatini yangilash haqida xabar
     this.websocketService.broadcastPollUpdate(pollId, isActive);
     
     return { success: true };
@@ -79,8 +78,6 @@ export class AdminService {
   async deletePoll(pollId: string) {
     await this.voteRepo.delete({ poll: { id: pollId } });
     await this.pollRepo.delete(pollId);
-    
-    // Poll o'chirilgani haqida xabar
     this.websocketService.broadcastPollDelete(pollId);
     
     return { success: true };

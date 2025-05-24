@@ -36,7 +36,7 @@ export class UserService {
     }
 
     if (!poll.options.includes(option)) {
-      throw new Error('Noto\'g\'ri variant');
+      throw new Error('Notogri variant');
     }
 
     const existingVote = await this.voteRepo.findOne({

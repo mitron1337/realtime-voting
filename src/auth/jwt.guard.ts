@@ -13,7 +13,7 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
     const token = request.headers.authorization?.replace('Bearer ', '');
     
     if (!token) {
-      throw new UnauthorizedException('Token yo\'q');
+      throw new UnauthorizedException('Token yoq');
     }
 
     try {
@@ -21,7 +21,7 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
       request.user = payload;
       return true;
     } catch (error) {
-      throw new UnauthorizedException('Noto\'g\'ri token');
+      throw new UnauthorizedException('Notogri token');
     }
   }
 }
